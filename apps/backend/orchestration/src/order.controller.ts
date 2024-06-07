@@ -5,6 +5,8 @@ import { InjectTemporalClient } from 'nestjs-temporal';
 import { taskQueueOrderFlow } from './shared/constants';
 import { IStoreOrderDto } from './shared/types';
 
+import { orderWorkflow } from '@repo/temporal/src/workflows';
+
 @Controller('/orders')
 export class OrderController {
   constructor(
@@ -23,7 +25,7 @@ export class OrderController {
     order.id = id;
 
     // Register workflows
-    const handle = await this.temporalClient.start('orderWorkflow', {
+    const handle = await this.temporalClient.start(orderWorkflow, {
       args: [order],
       taskQueue: taskQueueOrderFlow,
       workflowId: 'wf-order-id-' + id,

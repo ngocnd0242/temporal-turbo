@@ -1,10 +1,12 @@
 {
-  "name": "temporal",
+  "name": "@repo/temporal",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "scripts": {
     "build": "tsc --build",
     "build.watch": "tsc --build --watch",
