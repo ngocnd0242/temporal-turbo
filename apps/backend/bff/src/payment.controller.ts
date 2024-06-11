@@ -1,8 +1,9 @@
 import { Controller, Post, HttpCode, HttpStatus, Body } from '@nestjs/common';
 import { WorkflowClient, WorkflowFailedError } from '@temporalio/client';
 import { InjectTemporalClient } from 'nestjs-temporal';
+import { nanoid } from 'nanoid';
 
-import { IStorePaymentDto } from './types';
+import { CreatePaymentReqDto } from './dtos/CreatePaymentReqDto';
 
 @Controller('/payments')
 export class PaymentController {
@@ -12,16 +13,14 @@ export class PaymentController {
 
   @Post()
   @HttpCode(HttpStatus.ACCEPTED)
-  async postPayment(@Body() data: IStorePaymentDto): Promise<{
+  async postPayment(@Body() data: CreatePaymentReqDto): Promise<{
     status: number;
     paymentId: string;
   }> {
-    const id: string = (Math.random() + 1).toString(36).substring(2);
-    // Create payment from request
-    const payment: IStorePaymentDto = { ...data };
-    payment.id = id;
+    const payment: CreatePaymentReqDto = { ...data };
+    payment.id = nanoid();
 
-    const handle = this.temporalClient.getHandle('wf-order-id-' + data.orderId);
+    const handle = this.temporalClient.getHandle(data.orderId);
     const orderStatus = await handle.query('isOrder');
 
     if (!orderStatus) {

@@ -1,10 +1,13 @@
 import { Controller, Post, HttpCode, HttpStatus, Body } from '@nestjs/common';
 import { WorkflowClient } from '@temporalio/client';
 import { InjectTemporalClient } from 'nestjs-temporal';
+import { nanoid } from 'nanoid';
 
 import { taskQueueOrderFlow } from '@repo/temporal/constants';
 import { orderWorkflow } from '@repo/temporal/workflows';
 import { IStoreOrderDto } from './types';
+import { CreateOrderReqDto } from "./dtos/CreateOrderReqDto";
+import { IOrder } from "@repo/temporal/types/index";
 
 @Controller('/orders')
 export class OrderController {
@@ -14,27 +17,25 @@ export class OrderController {
 
   @Post()
   @HttpCode(HttpStatus.ACCEPTED)
-  async postOrder(@Body() data: IStoreOrderDto): Promise<{
+  async postOrder(@Body() data: CreateOrderReqDto): Promise<{
     status: number;
     orderId: string;
   }> {
-    const id: string = (Math.random() + 1).toString(36).substring(2);
-    // Create order from request
-    const order: IStoreOrderDto = { ...data };
+    const id: string = nanoid();
+    const order: IOrder = { ...data };
     order.id = id;
 
-    // Register workflows
     const handle = await this.temporalClient.start(orderWorkflow, {
       args: [order],
       taskQueue: taskQueueOrderFlow,
-      workflowId: 'wf-order-id-' + id,
+      workflowId: `order-${id}`,
     });
 
     console.log(`Started orderWorkflow ${handle.workflowId}`);
 
     return {
       status: 200,
-      orderId: order.id,
+      orderId: `order-${id}`,
     };
   }
 }
