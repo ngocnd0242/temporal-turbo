@@ -4,7 +4,7 @@ import {
   WorkflowExecutionAlreadyStartedError,
 } from '@temporalio/client';
 import { InjectTemporalClient } from 'nestjs-temporal';
-import { taskQueueA, taskQueueB } from '@repo/temporal/src/constants';
+import { taskQueueA, taskQueueB } from '@repo/temporal';
 import { ITransfer } from './types';
 
 @Controller('transfers')

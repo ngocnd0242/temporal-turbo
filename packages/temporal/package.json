@@ -7,13 +7,16 @@
   "license": "UNLICENSED",
   "main": "./index.ts",
   "types": "./index.ts",
+  "scripts": {
+    "build": "tsc --build"
+  },
   "nodemonConfig": {
     "execMap": {
       "ts": "ts-node"
     },
     "ext": "ts",
     "watch": [
-      "src"
+      "."
     ]
   },
   "dependencies": {

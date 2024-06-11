@@ -1,6 +1,6 @@
 import { PaymentService } from './payment.service';
 import { NativeConnection, Worker } from '@temporalio/worker';
-import { taskQueuePayment } from '@repo/temporal/src/constants';
+import { taskQueuePayment } from '@repo/temporal/constants';
 
 export const paymentWorkerProviders = [
   {

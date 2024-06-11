@@ -1,6 +1,6 @@
 import { OrderService } from './order.service';
 import { NativeConnection, Worker } from '@temporalio/worker';
-import { taskQueueOrder } from '@repo/temporal/src/constants';
+import { taskQueueOrder } from '@repo/temporal/constants';
 
 export const transferWorkerProviders = [
   {

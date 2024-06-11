@@ -2,10 +2,9 @@ import { Controller, Post, HttpCode, HttpStatus, Body } from '@nestjs/common';
 import { WorkflowClient } from '@temporalio/client';
 import { InjectTemporalClient } from 'nestjs-temporal';
 
-import { taskQueueOrderFlow } from '@repo/temporal/src/constants';
+import { taskQueueOrderFlow } from '@repo/temporal/constants';
+import { orderWorkflow } from '@repo/temporal/workflows';
 import { IStoreOrderDto } from './types';
-
-import { orderWorkflow } from '@repo/temporal/src/workflows';
 
 @Controller('/orders')
 export class OrderController {

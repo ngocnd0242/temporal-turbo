@@ -1,5 +1,5 @@
 import { NativeConnection, Worker } from '@temporalio/worker';
-import { taskQueueOrderFlow } from '@repo/temporal/src/constants';
+import { taskQueueOrderFlow } from '@repo/temporal/constants';
 
 export const wfWorkerProviders = [
   {
@@ -12,7 +12,9 @@ export const wfWorkerProviders = [
       const worker = await Worker.create({
         connection,
         taskQueue: taskQueueOrderFlow,
-        workflowsPath: require.resolve('@repo/temporal/workflow'),
+        workflowsPath: require.resolve(
+          './../../../../packages/temporal/workflows/order/index.ts',
+        ),
       });
 
       await worker.run();
