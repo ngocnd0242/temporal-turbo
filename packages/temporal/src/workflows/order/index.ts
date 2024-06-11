@@ -9,10 +9,10 @@ import {
 import type {
   OrderActivityInterface,
   PaymentActivityInterface,
-} from "../activities";
-import { IOrder, ICompensation, IPayment } from "../types";
-import { taskQueuePayment, taskQueueOrder } from "../constants";
-import { compensate } from "../utils";
+} from "../../activities";
+import { IOrder, ICompensation, IPayment } from "../../types";
+import { taskQueuePayment, taskQueueOrder } from "../../constants";
+import { compensate } from "../../utils";
 
 const isOrderQuery = defineQuery<boolean>("isOrder");
 const exitWFSignal = defineSignal("exit");
