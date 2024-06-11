@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { heartbeat } from '@temporalio/activity';
-import { IPayment } from './shared/types';
+import { IPayment } from './types';
 
 @Injectable()
 export class PaymentService {

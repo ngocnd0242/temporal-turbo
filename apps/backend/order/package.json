@@ -29,7 +29,8 @@
     "@temporalio/workflow": "^1.10.1",
     "nestjs-temporal": "^2.0.1",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "@repo/temporal": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

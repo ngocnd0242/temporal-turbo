@@ -7,16 +7,6 @@
   "license": "UNLICENSED",
   "main": "./index.ts",
   "types": "./index.ts",
-  "scripts": {
-    "build": "tsc --build",
-    "build.watch": "tsc --build --watch",
-    "lint": "eslint .",
-    "dev": "ts-node src/worker.ts",
-    "start.watch": "nodemon src/worker.ts",
-    "workflow": "ts-node src/client.ts",
-    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "test": "mocha --exit --require ts-node/register --require source-map-support/register src/mocha/*.test.ts"
-  },
   "nodemonConfig": {
     "execMap": {
       "ts": "ts-node"

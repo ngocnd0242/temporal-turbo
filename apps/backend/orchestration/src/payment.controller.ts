@@ -2,7 +2,7 @@ import { Controller, Post, HttpCode, HttpStatus, Body } from '@nestjs/common';
 import { WorkflowClient, WorkflowFailedError } from '@temporalio/client';
 import { InjectTemporalClient } from 'nestjs-temporal';
 
-import { IStorePaymentDto } from './shared/types';
+import { IStorePaymentDto } from './types';
 
 @Controller('/payments')
 export class PaymentController {
