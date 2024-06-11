@@ -6,10 +6,7 @@ import {
   isCancellation,
   Trigger,
 } from "@temporalio/workflow";
-import type {
-  OrderActivityInterface,
-  PaymentActivityInterface,
-} from "../../activities";
+import type { IOrderActivity, IPaymentActivity } from "../../activities";
 import { IOrder, ICompensation, IPayment } from "../../types";
 import { taskQueuePayment, taskQueueOrder } from "../../constants";
 import { compensate } from "../../utils";
@@ -20,7 +17,7 @@ const paymentSignal = defineSignal<[IPayment]>("payment");
 
 // Activities Interface from outside worker [order worker]
 const { order, revertOrder, notifyOrder, revertNotifyOrder } =
-  proxyActivities<OrderActivityInterface>({
+  proxyActivities<IOrderActivity>({
     taskQueue: taskQueueOrder, // use task queue from order worker
     retry: {
       maximumAttempts: 2,
@@ -31,7 +28,7 @@ const { order, revertOrder, notifyOrder, revertNotifyOrder } =
 
 // Activities Interface from outside worker [payment worker]
 const { payment, revertPayment, notifyPayment, revertNotifyPayment } =
-  proxyActivities<PaymentActivityInterface>({
+  proxyActivities<IPaymentActivity>({
     taskQueue: taskQueuePayment, // use task queue from payment worker
     retry: {
       maximumAttempts: 2,

@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { IOrder } from './types';
+import { IOrderActivity } from '@repo/temporal/activities';
 
 @Injectable()
-export class OrderService {
+export class OrderService implements IOrderActivity {
   constructor() {}
 
   async order(order: IOrder): Promise<boolean> {

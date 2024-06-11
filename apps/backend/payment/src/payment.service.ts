@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { heartbeat } from '@temporalio/activity';
 import { IPayment } from './types';
+import { IPaymentActivity } from '@repo/temporal/activities';
 
 @Injectable()
-export class PaymentService {
+export class PaymentService implements IPaymentActivity {
   constructor() {}
 
   async payment(payment: IPayment): Promise<void> {
