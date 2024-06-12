@@ -8,7 +8,7 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
-    "build": "tsc --build --clean"
+    "build": "tsc --build"
   },
   "nodemonConfig": {
     "execMap": {
