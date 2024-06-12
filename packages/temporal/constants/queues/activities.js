@@ -5,4 +5,3 @@ exports.taskQueueOrder = "ORDER_TASK_QUEUE";
 exports.taskQueuePayment = "PAYMENT_TASK_QUEUE";
 exports.taskQueueA = "TRANSFER_MONEY_A_TASK_QUEUE";
 exports.taskQueueB = "TRANSFER_MONEY_B_TASK_QUEUE";
-//# sourceMappingURL=activities.js.map

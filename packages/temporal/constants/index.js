@@ -16,4 +16,3 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./queues/workflows"), exports);
 __exportStar(require("./queues/activities"), exports);
-//# sourceMappingURL=index.js.map

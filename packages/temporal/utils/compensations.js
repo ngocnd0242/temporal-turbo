@@ -28,4 +28,3 @@ function compensate() {
     });
 }
 exports.compensate = compensate;
-//# sourceMappingURL=compensations.js.map

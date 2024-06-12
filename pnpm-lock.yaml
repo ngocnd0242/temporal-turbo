@@ -21,7 +21,7 @@ importers:
         specifier: latest
         version: 2.0.3
 
-  apps/backend/bff:
+  apps/bff:
     dependencies:
       '@nestjs/common':
         specifier: ^10.0.0
@@ -37,7 +37,7 @@ importers:
         version: 7.3.1(@nestjs/common@10.3.9)(@nestjs/core@10.3.9)(reflect-metadata@0.2.2)
       '@repo/temporal':
         specifier: workspace:*
-        version: link:../../../packages/temporal
+        version: link:../../packages/temporal
       '@temporalio/client':
         specifier: ^1.10.1
         version: 1.10.1
@@ -127,7 +127,7 @@ importers:
         specifier: ^5.1.3
         version: 5.4.5
 
-  apps/backend/order:
+  apps/order:
     dependencies:
       '@nestjs/common':
         specifier: ^10.0.0
@@ -140,7 +140,7 @@ importers:
         version: 10.3.9(@nestjs/common@10.3.9)(@nestjs/core@10.3.9)
       '@repo/temporal':
         specifier: workspace:*
-        version: link:../../../packages/temporal
+        version: link:../../packages/temporal
       '@temporalio/client':
         specifier: ^1.10.1
         version: 1.10.1
@@ -224,7 +224,7 @@ importers:
         specifier: ^5.1.3
         version: 5.4.5
 
-  apps/backend/payment:
+  apps/payment:
     dependencies:
       '@nestjs/common':
         specifier: ^10.0.0
@@ -237,7 +237,10 @@ importers:
         version: 10.3.9(@nestjs/common@10.3.9)(@nestjs/core@10.3.9)
       '@repo/temporal':
         specifier: workspace:*
-        version: link:../../../packages/temporal
+        version: link:../../packages/temporal
+      '@temporalio/activity':
+        specifier: ^1.10.1
+        version: 1.10.1
       '@temporalio/client':
         specifier: ^1.10.1
         version: 1.10.1
@@ -318,7 +321,7 @@ importers:
         specifier: ^5.1.3
         version: 5.4.5
 
-  apps/backend/wf_worker:
+  apps/wf_worker:
     dependencies:
       '@nestjs/common':
         specifier: ^10.0.0
@@ -331,7 +334,7 @@ importers:
         version: 10.3.9(@nestjs/common@10.3.9)(@nestjs/core@10.3.9)
       '@repo/temporal':
         specifier: workspace:*
-        version: link:../../../packages/temporal
+        version: link:../../packages/temporal
       '@temporalio/client':
         specifier: ^1.10.1
         version: 1.10.1

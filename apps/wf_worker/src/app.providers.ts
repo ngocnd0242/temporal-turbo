@@ -13,7 +13,7 @@ export const wfWorkerProviders = [
         connection,
         taskQueue: taskQueueOrderFlow,
         workflowsPath: require.resolve(
-          './../../../../packages/temporal/workflows/order/index.ts',
+          './../../../packages/temporal/workflows/order/index.ts',
         ),
       });
 

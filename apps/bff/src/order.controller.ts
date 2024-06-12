@@ -5,9 +5,8 @@ import { nanoid } from 'nanoid';
 
 import { taskQueueOrderFlow } from '@repo/temporal/constants';
 import { orderWorkflow } from '@repo/temporal/workflows';
-import { IStoreOrderDto } from './types';
-import { CreateOrderReqDto } from "./dtos/CreateOrderReqDto";
-import { IOrder } from "@repo/temporal/types/index";
+import { CreateOrderReqDto } from './dtos/CreateOrderReqDto';
+import { IOrder } from '@repo/temporal/types/index';
 
 @Controller('/orders')
 export class OrderController {
